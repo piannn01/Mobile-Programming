@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as myhttp;
+import 'package:http/http.dart' as http;
 
 void main() {
   runApp(const MyApp());
@@ -10,6 +10,7 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -34,55 +35,56 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text("HTTP POST"),
-        ),
-        body: ListView(
-          padding: EdgeInsets.all(20),
-          children: [
-            TextField(
-              controller: nameC,
-              autocorrect: false,
-              keyboardType: TextInputType.text,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: "Job",
-              ),
+      appBar: AppBar(
+        title: Text("HTTP POST"),
+      ),
+      body: ListView(
+        padding: EdgeInsets.all(20),
+        children: [
+          TextField(
+            controller: nameC,
+            autocorrect: false,
+            keyboardType: TextInputType.text,
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              labelText: "Name",
             ),
-            SizedBox(height:15),
-            TextField(
-              controller: jobC,
-              autocorrect: false,
-              keyboardType: TextInputType.text,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: "Job",
-              ),
+          ),
+          SizedBox(height: 15),
+          TextField(
+            controller: jobC,
+            autocorrect: false,
+            keyboardType: TextInputType.text,
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              labelText: "Job",
             ),
-            SizedBox(height: 15,),
-            ElevatedButton(
-              onPressed: () async {
-                var myresponse = await myhttp.post(
-                  Uri.parse("https//regres.in/api/users"),
-                  body: {"name": nameC.text, "job": jobC.text},
-                );
+          ),
+          SizedBox(height: 15),
+          ElevatedButton(
+            onPressed: () async {
+              var myresponse = await http.post(
+                Uri.parse("https://reqres.in/api/users"),
+                body: {"name":nameC.text, "job": jobC.text},
+              );
 
-                Map<String, dynamic> data = json.decode(myresponse.body) as Map<String, dynamic>;
+              Map<String, dynamic> data
+              = json.decode(myresponse.body) as Map<String, dynamic>;
 
-                setState(() {
-                  hasilResponse = "${data['name']} - ${data['job']}";
-                });
-                },
-                child: Text("SUBMIT"),
-            ),
-            SizedBox(height: 50),
-            Divider(
-              color: Colors.black,
-            ),
-            SizedBox(height: 10),
-            Text(hasilResponse),
-          ],
-        ),
+              setState(() {
+                hasilResponse = "${data['name']} - ${data['job']}";
+              });
+            },
+            child: Text("SUBMIT"),
+          ),
+          SizedBox(height: 50),
+          Divider(
+            color: Colors.black,
+          ),
+          SizedBox(height: 10),
+          Text(hasilResponse),
+        ],
+      ),
     );
   }
 }

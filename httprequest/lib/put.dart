@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as myhttp;
+import 'package:http/http.dart' as http;
 
 void main() {
   runApp(const MyApp());
@@ -49,7 +49,7 @@ class _HomePageState extends State<HomePage> {
               labelText: "Name",
             ),
           ),
-          SizedBox(height:15),
+          SizedBox(height: 15),
           TextField(
             controller: jobC,
             autocorrect: false,
@@ -59,15 +59,16 @@ class _HomePageState extends State<HomePage> {
               labelText: "Job",
             ),
           ),
-          SizedBox(height: 15,),
+          SizedBox(height: 15),
           ElevatedButton(
             onPressed: () async {
-              var myresponse = await myhttp.post(
-                Uri.parse("https//regres.in/api/users"),
-                body: {"name": nameC.text, "job": jobC.text},
+              var myresponse = await http.post(
+                Uri.parse("https://reqres.in/api/users/3"),
+                body: {"name":nameC.text, "job": jobC.text},
               );
 
-              Map<String, dynamic> data = json.decode(myresponse.body) as Map<String, dynamic>;
+              Map<String, dynamic> data
+              = json.decode(myresponse.body) as Map<String, dynamic>;
 
               setState(() {
                 hasilResponse = "${data['name']} - ${data['job']}";
