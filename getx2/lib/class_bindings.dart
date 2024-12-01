@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx2/route_management.dart';
 
 void main() {
   runApp(MyApp());

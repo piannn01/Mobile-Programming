@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx2/dependency_management.dart';
 
 void main() {
   runApp(MyApp());
