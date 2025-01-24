@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 
+// save
 class AcademicPerformancePage extends StatelessWidget {
   final int dailySales = 1490; // Contoh total penjualan harian
   final List<Map<String, dynamic>> popularItems = [
@@ -28,7 +29,7 @@ class AcademicPerformancePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Analisa'),
+        title: Text('Academic Performance'),
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16),

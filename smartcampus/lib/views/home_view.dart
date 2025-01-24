@@ -177,10 +177,8 @@ class HomeView extends StatelessWidget {
         _buildMenuIcon(Icons.history, 'History Peminjaman', () {}),
         _buildMenuIcon(Icons.location_on, 'Tracking Peminjaman', () {
         }),
-        _buildMenuIcon(Icons.report, 'Pelaporan Kerusakan', () {
-          Get.toNamed('/report-generator');
-        }),
-        _buildMenuIcon(Icons.feedback, 'Feedback System', () {}),
+        _buildMenuIcon(Icons.feedback, 'Report Generator', () {
+          Get.toNamed('/report-generator');}),
         _buildMenuIcon(Icons.monetization_on, 'Financial Overview', () {
           Get.toNamed('/financial-overview');
         }),
@@ -200,9 +198,8 @@ class HomeView extends StatelessWidget {
       shrinkWrap: true,
       physics: NeverScrollableScrollPhysics(),
       children: [
-        _buildMenuIcon(Icons.analytics, 'Report Generator', () {
-          Get.toNamed('/report-generator');
-        }),
+        _buildMenuIcon(Icons.feedback, 'Report Generator', () {
+          Get.toNamed('/report-generator');}),
         _buildMenuIcon(Icons.school, 'Academic Performa', () {
           Get.toNamed('/academic-performance');
         }),
