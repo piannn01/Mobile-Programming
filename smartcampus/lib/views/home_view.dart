@@ -208,7 +208,9 @@ class HomeView extends StatelessWidget {
         }),
         _buildMenuIcon(Icons.build, 'Pemakaian Fasilitas', () {
           Get.toNamed('/facility-usage');}),
-        _buildMenuIcon(Icons.monetization_on, 'Finansial Overview', () {}),
+        _buildMenuIcon(Icons.monetization_on, 'Finansial Overview', () {
+          Get.toNamed('/financial-overview');
+        }),
         _buildMenuIcon(Icons.book, 'KRS', () {}),
         _buildMenuIcon(Icons.grade, 'KHS', () {}),
       ],
