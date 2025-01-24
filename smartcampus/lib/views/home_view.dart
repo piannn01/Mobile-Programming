@@ -174,9 +174,6 @@ class HomeView extends StatelessWidget {
         _buildMenuIcon(Icons.meeting_room, 'Facility Usage', () {
           Get.toNamed('/facility-usage');
         }),
-        _buildMenuIcon(Icons.history, 'History Peminjaman', () {}),
-        _buildMenuIcon(Icons.location_on, 'Tracking Peminjaman', () {
-        }),
         _buildMenuIcon(Icons.feedback, 'Report Generator', () {
           Get.toNamed('/report-generator');}),
         _buildMenuIcon(Icons.monetization_on, 'Financial Overview', () {
